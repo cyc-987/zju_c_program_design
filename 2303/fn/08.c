@@ -42,8 +42,15 @@ struct ListNode *createlist()
     while(num != -1){
         p1 = (struct ListNode*)malloc(size);
         p1->data = num;
-        p1->next = head;
-        head = p1;
+        
+        if(head == NULL){
+            head = p1;
+        }
+        if(p2 != NULL){
+            p2->next = p1;
+        }
+        p2 = p1;
+        
         scanf("%d",&num); 
     }
     return head;
@@ -53,11 +60,46 @@ struct ListNode *createlist()
 struct ListNode *mergelists(struct ListNode *list1, struct ListNode *list2)
 {
     int num;
-    struct ListNode *p1,*p2,*p;
+    struct ListNode *p1,*p2,*p,*p3,*head;
+    if(list1==NULL){
+        if(list2 == NULL){
+            return NULL;
+        }else{
+            return list2;
+        }
+    }
+    if(list2==NULL){
+        if(list1 == NULL){
+            return NULL;
+        }else{
+            return list1;
+        }
+    }
 
     if(list1->data <= list2->data){
         p = list2;
+        p1 = list1;
+        head = list1;
     }else{
         p = list1;
+        p1 = list2;
+        head = list2;
     }
+    p2 = p1->next;
+    while(1)
+    {
+        if(p->data >= p1->data && (p2 == NULL || p->data < p2->data)){
+            p1->next = p;
+            p3 = p->next;
+            p->next = p2;
+            p1 = p;
+            p = p3;
+        }
+        else{
+            p1 = p2;
+            p2 = p2->next;
+        }
+        if(p==NULL)break;
+    }
+    return head;
 }
