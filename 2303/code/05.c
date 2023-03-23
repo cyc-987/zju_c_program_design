@@ -13,10 +13,11 @@ int main()
     {
         poem[i] = malloc(3*size*(strlen(str)+1));
         strcpy(poem[i],str);
+        poem[i][3] = '\0';
         gets(str);
     }
 
     for(int i = 0;i<4;i++){
-        printf("%c",*poem[i]);
+        printf("%s",poem[i]);
     }
 }
