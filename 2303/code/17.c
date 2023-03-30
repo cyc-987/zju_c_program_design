@@ -79,12 +79,16 @@ int main()
         }
     }
 
-    for(int i = 0;i<7;i++){
-        for(int k = 0;k<8;k++){
-            printf("%3d",square[i][k]);
-            if(k == 7)printf("\n");
-        }
-    }
+
+    //for(int i = 0;i<7;i++){
+    //    for(int k = 0;k<8;k++){
+    //        printf("%3d",square[i][k]);
+    //        if(k == 7)printf("\n");
+    //    }
+    //}
+
+
+    int A,B,C,D,E,F,G;
 
     for(a = 1;a <= 7;a++){
         for(b = 1;b <= 7;b++){
@@ -94,7 +98,8 @@ int main()
                         for(f = 1;f <= 7;f++){
                             for(g = 1;g <= 7;g++){
                                 if(judge(square,a,b,c,d,e,f,g)==1){
-                                    printf("%d %d %d %d %d %d %d",a,b,c,d,e,f,g);
+                                    //printf("%d %d %d %d %d %d %d",a,b,c,d,e,f,g);
+                                    A = a;B = b;C = c;D =d;E = e;F = f;G = g;
                                 }else continue;
                             }
                         }
@@ -102,5 +107,15 @@ int main()
                 }
             }
         }
+    }
+
+    for(int i = 1;i<=7;i++){
+        if(A == i)printf("A");
+        else if(B == i)printf("B");
+        else if(C == i)printf("C");
+        else if(D == i)printf("D");
+        else if(E == i)printf("E");
+        else if(F == i)printf("F");
+        else if(G == i)printf("G");
     }
 }
