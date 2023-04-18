@@ -14,7 +14,7 @@ int main()
 
     if(possible(ch)==0){
         printf("Impossible");
-        return
+        return 0;
     };
 }
 
